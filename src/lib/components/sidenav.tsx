@@ -17,7 +17,6 @@ export function Sidenav() {
   return (
     <nav className='flex flex-col'>
       <SidenavItem href='/' text='Home' />
-      <SidenavItem href='/authors' text='Authors' />
     </nav>
   );
 }

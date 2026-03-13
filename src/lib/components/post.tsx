@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Author, Post, fetchAuthor } from '@/lib/api';
+import { User, Post, fetchUser } from '@/lib/api';
 
 export async function ShortPost({ post }: { post: Post }) {
-  const author: Author | undefined = await fetchAuthor(post.author);
+  const user: User | undefined = await fetchUser(post.author);
 
   return (
     <article>
@@ -11,9 +11,9 @@ export async function ShortPost({ post }: { post: Post }) {
           {post.title.rendered}
         </h3>
         {
-          author && <>
+          user && <>
             <h4>
-              by {author.name}
+              by {user.name}
             </h4>
           </>
         }
