@@ -8,7 +8,6 @@ interface Props {
 export default async function PostPage({ params }: Props) {
   const props = await params;
   const page = Number(props?.page || 1);
-
   const posts: Post[] = await fetchPosts({ page });
 
   return (

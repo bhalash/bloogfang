@@ -6,17 +6,18 @@ import { Query, toParams } from './query.util';
  * @see https://developer.wordpress.org/rest-api/reference/posts/
  */
 
-const endpoint = process.env.BLOG_URL!;
+const endpoint = `${process.env.BLOG_URL!}/wp/v2`;
 
 export interface Post {
   id: number;
+  slug: string;
   date: string;
   modified: string;
   author: number; // id of user
   link: string;
   class_list: string[]; // seems like tags rendered as classes
+  categories: number[]; // ids of tags
   tags: number[]; // ids of tags
-  slug: string;
 
   comment_status: string; // 'open' - enum
   ping_status: string; // 'open' - enum

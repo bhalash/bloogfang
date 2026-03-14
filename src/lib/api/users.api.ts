@@ -17,7 +17,7 @@ export interface User {
   };
 }
 
-const endpoint = process.env.BLOG_URL!;
+const endpoint = `${process.env.BLOG_URL!}/wp/v2`;
 
 export async function fetchUsers(): Promise<User[]> {
   const res = await fetch(`${endpoint}/users`);

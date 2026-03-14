@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { User, Post, fetchUser } from '@/lib/api';
 
+export function renderClasses(post: Post): string {
+  return post.class_list.join(' ');
+}
+
 export async function ShortPost({ post }: { post: Post }) {
   const user: User | undefined = await fetchUser(post.author);
 
@@ -19,7 +23,7 @@ export async function ShortPost({ post }: { post: Post }) {
         }
       </Link>
       <main
-        className={post.class_list.join(' ')}
+        className={renderClasses(post)}
         dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
       />
     </article>
@@ -29,11 +33,11 @@ export async function ShortPost({ post }: { post: Post }) {
 export function FullPost({ post }: { post: Post }) {
   return (
     <article>
-      <h1 className='font-bold text-5xl'>
+      <h3 className='font-bold text-5xl'>
         {post.title.rendered}
-      </h1>
+      </h3>
       <main
-        className={post.class_list.join(' ')}
+        className={renderClasses(post)}
         dangerouslySetInnerHTML={{ __html: post.content.rendered }}
       />
     </article>

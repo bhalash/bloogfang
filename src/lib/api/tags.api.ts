@@ -18,7 +18,7 @@ export interface Tag {
 
 export interface TagQuery extends Query {}
 
-const endpoint = process.env.BLOG_URL!;
+const endpoint = `${process.env.BLOG_URL!}/wp/v2`;
 
 export async function fetchTags(query: TagQuery = {}): Promise<Tag[]> {
   const res = await fetch(`${endpoint}/tags?${toParams(query)}`);
