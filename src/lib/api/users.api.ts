@@ -1,6 +1,6 @@
 /**
  * Users
- *
+ * -----------------------------------------------------------------------------
  * @see https://developer.wordpress.org/rest-api/reference/users/
  */
 

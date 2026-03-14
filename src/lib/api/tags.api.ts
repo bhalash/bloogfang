@@ -2,6 +2,7 @@ import { Query, toParams } from './query.util';
 
 /**
  * Tags
+ * -----------------------------------------------------------------------------
  * @see https://developer.wordpress.org/rest-api/reference/tags/
  */
 

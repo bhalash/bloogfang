@@ -14,7 +14,7 @@ export default async function PostPage({ params }: Props) {
   return (
     <>
       <div className='flex flex-col gap-4 max-w-5xl'>
-        {posts.map((post) => <ShortPost key={post.id} post={post} />)}
+        {posts.map((post) => <ShortPost key={post.slug} post={post} />)}
       </div>
       <Pagination page={page} />
     </>

@@ -2,7 +2,7 @@ import { Query, toParams } from './query.util';
 
 /**
  * Posts
- *
+ * -----------------------------------------------------------------------------
  * @see https://developer.wordpress.org/rest-api/reference/posts/
  */
 
@@ -16,6 +16,7 @@ export interface Post {
   link: string;
   class_list: string[]; // seems like tags rendered as classes
   tags: number[]; // ids of tags
+  slug: string;
 
   comment_status: string; // 'open' - enum
   ping_status: string; // 'open' - enum
@@ -52,6 +53,17 @@ export async function fetchPost(id: number): Promise<Post | undefined> {
 
   if (res.ok) {
     return res.json();
+  } else {
+    return undefined; // 404
+  }
+}
+
+export async function fetchPostBySlug(slug: string): Promise<Post | undefined> {
+  const res = await fetch(`${endpoint}/posts?${toParams({ slug })}`);
+
+  if (res.ok) {
+    const [post] = await res.json();
+    return post;
   } else {
     return undefined; // 404
   }

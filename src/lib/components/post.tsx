@@ -6,7 +6,7 @@ export async function ShortPost({ post }: { post: Post }) {
 
   return (
     <article>
-      <Link href={`/posts/${post.id}`}>
+      <Link href={`/posts/${post.slug}`}>
         <h3 className='font-bold text-3xl'>
           {post.title.rendered}
         </h3>
