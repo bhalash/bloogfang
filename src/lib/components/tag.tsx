@@ -18,7 +18,7 @@ export async function PostTags({ post }: { post: Post }) {
         {
           tags.map((tag) => (
             <li key={tag.id}>
-              <Link href={`/tags/${tag.id}`}>
+              <Link href={`/tags/${tag.slug}`}>
                 {tag.name}
               </Link>
             </li>
