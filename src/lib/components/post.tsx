@@ -11,9 +11,11 @@ export async function ShortPost({ post }: { post: Post }) {
   return (
     <article>
       <Link href={`/posts/${post.slug}`}>
-        <h3 className='font-bold text-3xl'>
-          {post.title.rendered}
-        </h3>
+        <h2
+          className='font-bold text-3xl'
+          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+        />
+
         {
           user && <>
             <h4>
@@ -33,9 +35,10 @@ export async function ShortPost({ post }: { post: Post }) {
 export function FullPost({ post }: { post: Post }) {
   return (
     <article>
-      <h3 className='font-bold text-5xl'>
-        {post.title.rendered}
-      </h3>
+      <h1
+        className='font-bold text-5xl'
+        dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+      />
       <main
         className={renderClasses(post)}
         dangerouslySetInnerHTML={{ __html: post.content.rendered }}

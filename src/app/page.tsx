@@ -17,9 +17,9 @@ export default async function Home() {
 
   return (
     <>
-      <h3 className='font-bold text-5xl'>
+      <h1 className='font-bold text-5xl'>
         {meta.name}
-      </h3>
+      </h1>
       <h3 className='text-2xl'>
         {meta.description}
       </h3>
