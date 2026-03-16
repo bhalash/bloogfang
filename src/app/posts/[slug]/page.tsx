@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { FullPost, PostTags, UserInfo } from '@/lib/components';
 import { Metadata } from 'next';
-import { Post, fetchPostBySlug } from '@/lib/api';
+import { Post, findPost } from '@/lib/api';
 import { notFound } from 'next/navigation';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props ): Promise<Metadata> {
   const { slug } = await params;
-  const post: Post | undefined = await fetchPostBySlug(slug);
+  const post: Post | undefined = await findPost(slug);
 
   return {
     title: post?.title.rendered,
@@ -20,8 +20,7 @@ export async function generateMetadata({ params }: Props ): Promise<Metadata> {
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
-
-  const post: Post | undefined = await fetchPostBySlug(slug);
+  const post: Post | undefined = await findPost(slug);
 
   if (!post) {
     return notFound();

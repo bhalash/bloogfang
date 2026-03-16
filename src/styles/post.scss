@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+:root {
+  --post-float-margin: calc(var(--spacing) * 4);
+  --post-float-max-width: 33%;
+}
+
+.post {
+  max-width: var(--container-2xl);
+
+  main {
+    clear: both;
+    overflow: auto;
+
+    & > * {
+      margin-bottom: calc(var(--spacing) * 4);
+    }
+
+    a {
+      color: cornflowerblue;
+      text-decoration: underline;
+    }
+
+    figure {
+      display: grid;
+      gap: calc(var(--spacing) * 3);
+      grid-template-columns: repeat(3, minmax(200px, 1fr));
+      grid-template-rows: auto;
+
+      &:not(.rightie):has(a:first-child:last-child) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    blockquote {
+      border-left: 1px solid green;
+      padding-left: 1ch;
+    }
+
+    ul {
+      list-style: initial;
+      margin-left: 1ch;
+    }
+
+    .leftie {
+      float: left;
+      max-width: var(--post-float-max-width);
+      margin-right: var(--post-float-margin);
+    }
+
+    .rightie {
+      float: right;
+      max-width: var(--post-float-max-width);
+      margin-left: var(--post-float-margin);
+    }
+  }
+}

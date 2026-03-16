@@ -1,4 +1,5 @@
 import { Query, toParams } from './query.util';
+import { redirect } from 'next/navigation';
 
 /**
  * Posts
@@ -59,13 +60,22 @@ export async function fetchPost(id: number): Promise<Post | undefined> {
   }
 }
 
-export async function fetchPostBySlug(slug: string): Promise<Post | undefined> {
-  const res = await fetch(`${endpoint}/posts?${toParams({ slug })}`);
+/**
+ * Find WP post by ID or slug: id will be fully numeric, while slugs will have
+ * other alphanumeric characters.
+ *
+ * TODO(mark 2026-03-16): I'm unhappy with the redirect here as an impure
+ * side-effect. Find a better home for it!
+ */
+export async function findPost(idOrSlug: string): Promise<Post | undefined> {
+  if (/^[0-9]+$/.test(idOrSlug)) {
+    const post = await fetchPost(Number(idOrSlug));
 
-  if (res.ok) {
-    const [post] = await res.json();
-    return post;
-  } else {
-    return undefined; // 404
+    if (post) {
+      redirect(`/posts/${post.slug}`);
+    }
   }
+
+  const [post] = await fetchPosts({ slug: idOrSlug });
+  return post;
 }
