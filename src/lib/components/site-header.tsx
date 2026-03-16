@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { SiteMeta, fetchSiteMeta } from '@/lib/api';
 
-import '@/styles/header.scss';
+import '@/styles/header.css';
 
 export async function SiteHeader() {
   const meta: SiteMeta = await fetchSiteMeta();

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import '@/styles/pagination.scss';
+import '@/styles/pagination.css';
 
 interface Props {
   page?: number;

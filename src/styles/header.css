@@ -7,14 +7,14 @@
 .cool-drop {
   color: var(--cool-drop-middle);
   text-shadow:
-    -22px -22px 0 var(--cool-drop-top), // top
-     22px  22px 0 var(--cool-drop-bottom); // bottom
+    -22px -22px 0 var(--cool-drop-top), /* top */
+     22px  22px 0 var(--cool-drop-bottom); /* bottom */
   transition: text-shadow .5s;
   transform: rotate(-2deg) skew(-5deg);
 
   &:hover {
     text-shadow:
-      -38px -22px 0 var(--cool-drop-top), // top
-       38px  22px 0 var(--cool-drop-bottom); // bottom
+      -38px -22px 0 var(--cool-drop-top), /* top */
+       38px  22px 0 var(--cool-drop-bottom); /* bottom */
   }
 }

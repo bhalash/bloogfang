@@ -3,7 +3,7 @@ import { Post } from '@/lib/api';
 import { formatISO } from 'date-fns';
 import { parse } from 'node-html-parser';
 
-import '@/styles/post.scss';
+import '@/styles/post.css';
 
 export type Props = { post: Post };
 

@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { SiteHeader } from '@/lib/components';
 import { SiteMeta, fetchSiteMeta } from '@/lib/api';
 
-import '@/styles/globals.scss';
+import '@/styles/globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
