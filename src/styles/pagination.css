@@ -1,9 +1,7 @@
 @import 'material-symbols';
 
 :root {
-  --cool-drop-top: #fe7743;
-  --cool-drop-middle: #dddad6;
-  --cool-drop-bottom: #447d9b;
+  --pagination-icon-size: 3rem;
 }
 
 .pagination {
@@ -11,15 +9,19 @@
   right: 1rem;
   bottom: 1rem;
 
+  span {
+    font-size: var(--pagination-icon-size);
+  }
+
   .disabled {
     opacity: 0.2;
     pointer-events: none;
   }
 
-  a {
+  .pagination-item {
     /* TODO(mark 2026-03-15): refine */
     text-shadow:
-      -2px -4px 0 var(--cool-drop-top), /* top */
-       2px  4px 0 var(--cool-drop-bottom); /* bottom */
+      -2px -4px 0 var(--skew-color-top), /* top */
+       2px  4px 0 var(--skew-color-bottom); /* bottom */
   }
 }

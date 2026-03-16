@@ -6,10 +6,22 @@
 }
 
 .post {
-  max-width: var(--container-2xl);
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 2rem;
+  align-items: center;
+
+  header {
+    max-width: var(--container-2xl);
+  }
+
+  footer {
+    max-width: var(--container-4xl);
+  }
 
   main {
     clear: both;
+    max-width: var(--container-2xl);
     overflow: auto;
 
     & > * {
@@ -17,7 +29,7 @@
     }
 
     a {
-      color: cornflowerblue;
+      color: var(--skew-color-bottom);
       text-decoration: underline;
     }
 
@@ -27,8 +39,9 @@
       grid-template-columns: repeat(3, minmax(200px, 1fr));
       grid-template-rows: auto;
 
-      &:not(.rightie):has(a:first-child:last-child) {
-        grid-template-columns: repeat(1, 1fr);
+      /* make single non-floated image take up hero size */
+      a:not(.float-left):not(.float-right):only-child {
+        grid-column: 1 / 4;
       }
     }
 
@@ -42,13 +55,13 @@
       margin-left: 1ch;
     }
 
-    .leftie {
+    .float-left {
       float: left;
       max-width: var(--post-float-max-width);
       margin-right: var(--post-float-margin);
     }
 
-    .rightie {
+    .float-right {
       float: right;
       max-width: var(--post-float-max-width);
       margin-left: var(--post-float-margin);

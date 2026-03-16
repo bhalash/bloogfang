@@ -1,20 +1,22 @@
 :root {
-  --cool-drop-top: #fe7743;
-  --cool-drop-middle: #dddad6;
-  --cool-drop-bottom: #447d9b;
+  --skew-color-top: #fe7743;
+  --skew-color-middle: #dddad6;
+  --skew-color-bottom: #447d9b;
+  --skew-transform: rotate(-2deg) skew(-5deg);
+  --skew-reverse-transform: rotate(2deg) skew(5deg);
 }
 
-.cool-drop {
-  color: var(--cool-drop-middle);
+.skew-drop {
+  color: var(--skew-color-middle);
   text-shadow:
-    -22px -22px 0 var(--cool-drop-top), /* top */
-     22px  22px 0 var(--cool-drop-bottom); /* bottom */
+    -22px -22px 0 var(--skew-color-top),
+     22px  22px 0 var(--skew-color-bottom);
   transition: text-shadow .5s;
-  transform: rotate(-2deg) skew(-5deg);
+  transform: var(--skew-transform);
 
   &:hover {
     text-shadow:
-      -38px -22px 0 var(--cool-drop-top), /* top */
-       38px  22px 0 var(--cool-drop-bottom); /* bottom */
+      0 -20px 0 var(--skew-color-top),
+      0  20px 0 var(--skew-color-bottom);
   }
 }

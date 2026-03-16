@@ -1,0 +1,15 @@
+.user-footer {
+  background: var(--skew-color-bottom);
+  margin: 2rem 0;
+  overflow: hidden;
+  padding: 2rem;
+  transform: var(--skew-reverse-transform);
+
+  .user-footer-content {
+    transform: rotate(-2deg) skew(-5deg);
+  }
+
+  img {
+    border-radius: 50%;
+  }
+}
