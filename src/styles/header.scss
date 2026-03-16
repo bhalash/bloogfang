@@ -1,0 +1,22 @@
+:root {
+  --cool-drop-red: #ff718f;
+  --cool-drop-blue: #71d2ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cool-drop-red: #ff718f;
+    --cool-drop-blue: #71d2ff;
+  }
+}
+
+.cool-drop {
+  color: #dddad6;
+  text-shadow: 3px 3px 0 var(--cool-drop-red), 6px 6px 0 var(--cool-drop-blue);
+  transition: text-shadow .5s;
+  transform: rotate(-2deg) skew(-5deg);
+
+  &:hover {
+    text-shadow: -5px 5px 0 var(--cool-drop-red), -10px 10px 0 var(--cool-drop-blue);
+  }
+}

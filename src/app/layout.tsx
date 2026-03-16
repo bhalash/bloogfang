@@ -1,8 +1,9 @@
-import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
+import { Metadata } from 'next';
+import { SiteHeader } from '@/lib/components';
+import { SiteMeta, fetchSiteMeta } from '@/lib/api';
 
-import { Sidenav } from '@/lib/components';
+import '@/styles/globals.scss';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -14,10 +15,14 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: 'Cool Blog',
-  description: 'Hot shit.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const meta: SiteMeta = await fetchSiteMeta();
+
+  return {
+    title: meta.name,
+    description: meta.description,
+  };
+}
 
 export default function RootLayout({
   children,
@@ -26,8 +31,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col gap-2`}>
-        <Sidenav />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col items-center gap-4`}>
+        <SiteHeader />
         {children}
       </body>
     </html>
