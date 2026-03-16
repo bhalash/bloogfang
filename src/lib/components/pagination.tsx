@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import '@/styles/pagination.scss';
+
 interface Props {
   page?: number;
 }
@@ -9,14 +11,25 @@ export function Pagination({ page = 1 }: Props) {
   const nextPage = page + 1;
 
   return (
-    <>
-      {
-        page > 1 && <Link href={`/page/${previousPage}`}>Previous</Link>
-      }
-      <Link href={`/page/${nextPage}`}>
-        Next
-      </Link>
-    </>
-  );
+    <footer>
+      <nav className='pagination'>
+        <Link
+          className={page < 2 && 'disabled' || ''}
+          href='/'>
+          <span className='material-symbols-outlined' style={{ fontSize: 48 }}>home</span>
+        </Link>
 
+        <Link
+          className={page < 2 && 'disabled' || ''}
+          href={`/page/${previousPage}`}
+        >
+          <span className='material-symbols-outlined' style={{ fontSize: 48 }}>arrow_back</span>
+        </Link>
+
+        <Link href={`/page/${nextPage}`}>
+          <span className='material-symbols-outlined' style={{ fontSize: 48 }}>arrow_forward</span>
+        </Link>
+      </nav>
+    </footer>
+  );
 }
