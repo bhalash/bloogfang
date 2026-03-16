@@ -9,7 +9,7 @@ export async function PostTags({ post }: { post: Post }) {
   }
 
   return (
-    <div>
+    <section>
       <h4 className="font-bold text-2xl">
         Post Tags:
       </h4>
@@ -25,6 +25,6 @@ export async function PostTags({ post }: { post: Post }) {
           ))
         }
       </ul>
-    </div>
+    </section>
   );
 }
