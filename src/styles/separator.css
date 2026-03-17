@@ -1,6 +1,6 @@
 .skew-separator {
   background: var(--foreground);
   margin: 2rem 0;
-  transform: var(--skew-transform);
+  transform: var(--skew-forward);
   height: 0.25rem;
 }

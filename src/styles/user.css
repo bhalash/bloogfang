@@ -1,18 +1,7 @@
 .user-footer {
   background: var(--skew-color-bottom);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  transform: var(--skew-reverse-transform);
-
-  .inner {
-    transform: var(--skew-reverse-negate);
-  }
 
   figure {
-    flex: 1 0 96px;
-  }
-
-  img {
-    border-radius: 1rem;
+    flex: 1 0 var(--avatar-size);
   }
 }

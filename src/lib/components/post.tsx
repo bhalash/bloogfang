@@ -56,7 +56,7 @@ export async function ShortPost({ post }: Props) {
 export function FullPost({ post }: Props) {
   return (
     <article className={post.class_list.join(' ')} id={`post-${post.id}`}>
-      <header className='text-center'>
+      <header className='text-center max-w-2xl'>
         <PostDate post={post} />
         <h1
           className='font-bold text-4xl mb-4'

@@ -1,23 +1,13 @@
 @import 'tailwindcss';
 
-:root {
+.post {
   --post-float-margin: calc(var(--spacing) * 4);
   --post-float-max-width: 33%;
-}
 
-.post {
+  align-items: center;
   display: flex;
   flex-flow: column nowrap;
   row-gap: 2rem;
-  align-items: center;
-
-  header {
-    max-width: var(--container-2xl);
-  }
-
-  footer {
-    max-width: var(--container-4xl);
-  }
 
   main {
     clear: both;
@@ -30,8 +20,11 @@
     }
 
     a {
-      color: var(--skew-color-bottom);
-      text-decoration: underline;
+      color: var(--skew-color-top);
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     figure {
