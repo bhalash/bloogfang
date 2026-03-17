@@ -12,7 +12,7 @@ export interface Tag {
   link: string;
   name: string;
   slug: string;
-  taxonomgy: string; // seems like enum
+  taxonomy: 'tag';
   meta: unknown[];
 }
 
@@ -20,7 +20,7 @@ export interface TagQuery extends Query {}
 
 const endpoint = `${process.env.BLOG_URL!}/wp/v2`;
 
-export async function fetchTags(query: TagQuery = {}): Promise<Tag[]> {
+export async function queryTags(query: TagQuery = {}): Promise<Tag[]> {
   const res = await fetch(`${endpoint}/tags?${toParams(query)}`);
 
   if (res.ok) {

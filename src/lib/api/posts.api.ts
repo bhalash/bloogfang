@@ -40,7 +40,7 @@ export interface Post {
 
 export interface PostQuery extends Query {}
 
-export async function fetchPosts(query: PostQuery = {}): Promise<Post[]> {
+export async function queryPosts(query: PostQuery = {}): Promise<Post[]> {
   const res = await fetch(`${endpoint}/posts?${toParams(query)}`);
 
   if (res.ok) {
@@ -76,6 +76,6 @@ export async function findPost(idOrSlug: string): Promise<Post | undefined> {
     }
   }
 
-  const [post] = await fetchPosts({ slug: idOrSlug });
+  const [post] = await queryPosts({ slug: idOrSlug });
   return post;
 }

@@ -1,3 +1,4 @@
+export * from './categories.api';
 export * from './posts.api';
 export * from './query.util';
 export * from './site-meta.api';

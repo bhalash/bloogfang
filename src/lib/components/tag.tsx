@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Tag, Post, fetchTags } from '@/lib/api';
+import { Tag, Post, queryTags } from '@/lib/api';
 
 export async function PostTags({ post }: { post: Post }) {
-  const tags: Tag[] = await fetchTags({ include: post.tags });
+  const tags: Tag[] = await queryTags({ include: post.tags });
 
   if (!tags.length) {
     return null;

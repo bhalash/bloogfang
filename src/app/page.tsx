@@ -1,8 +1,8 @@
 import { Pagination, ShortPost } from '@/lib/components';
-import { Post, fetchPosts } from '@/lib/api';
+import { Post, queryPosts } from '@/lib/api';
 
 export default async function Home() {
-  const posts: Post[] = await fetchPosts();
+  const posts: Post[] = await queryPosts();
 
   return (
     <>

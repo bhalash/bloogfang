@@ -1,4 +1,4 @@
-import { Post, fetchPosts } from '@/lib/api';
+import { Post, queryPosts } from '@/lib/api';
 import { Pagination, ShortPost } from '@/lib/components';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 export default async function PostPage({ params }: Props) {
   const props = await params;
   const page = Number(props?.page || 1);
-  const posts: Post[] = await fetchPosts({ page });
+  const posts: Post[] = await queryPosts({ page });
 
   return (
     <>
