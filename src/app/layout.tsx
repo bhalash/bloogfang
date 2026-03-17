@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Metadata } from 'next';
-import { SiteHeader } from '@/lib/components';
+import { SiteHeader, SiteFooter } from '@/lib/components';
 import { SiteMeta, fetchSiteMeta } from '@/lib/api';
 
 import '@/styles/globals.css';
@@ -34,6 +34,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col items-center gap-4`}>
         <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Post } from '@/lib/api';
 import { formatISO } from 'date-fns';
 import { parse } from 'node-html-parser';
+import { Separator, UserInfo } from '@/lib/components';
 
 import '@/styles/post.css';
 
@@ -58,11 +59,13 @@ export function FullPost({ post }: Props) {
       <header className='text-center'>
         <PostDate post={post} />
         <h1
-          className='font-bold text-5xl mb-4'
+          className='font-bold text-4xl mb-4'
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
+        <Separator />
       </header>
       <main dangerouslySetInnerHTML={{ __html: renderContent({ post }) }} />
+      <UserInfo post={post} />
     </article>
   );
 }

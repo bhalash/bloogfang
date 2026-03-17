@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { FullPost, PostTags, UserInfo } from '@/lib/components';
+import { FullPost } from '@/lib/components';
 import { Metadata } from 'next';
 import { Post, findPost } from '@/lib/api';
 import { notFound } from 'next/navigation';
@@ -32,8 +32,6 @@ export default async function PostPage({ params }: Props) {
         <title>{post.title.rendered}</title>
       </Head>
       <FullPost post={post} />
-      <UserInfo post={post} />
-      <PostTags post={post} />
     </>
   );
 }
