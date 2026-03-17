@@ -4,6 +4,7 @@
   --skew-color-bottom: #447d9b;
   --skew-transform: rotate(-2deg) skew(-5deg);
   --skew-reverse-transform: rotate(2deg) skew(5deg);
+  --skew-reverse-negate: rotate(-2deg) skew(-5deg);
 }
 
 .skew-drop {

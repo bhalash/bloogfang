@@ -21,6 +21,7 @@
 
   main {
     clear: both;
+    font-size: var(--text-lg);
     max-width: var(--container-2xl);
     overflow: auto;
 
