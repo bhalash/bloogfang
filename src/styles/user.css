@@ -1,7 +1,0 @@
-.user-footer {
-  background: var(--skew-color-bottom);
-
-  figure {
-    flex: 1 0 var(--avatar-size);
-  }
-}

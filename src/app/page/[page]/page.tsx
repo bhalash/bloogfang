@@ -1,5 +1,6 @@
+import { Pagination } from '@/lib/components';
 import { Post, queryPosts } from '@/lib/api';
-import { Pagination, ShortPost } from '@/lib/components';
+import { ShortPost } from '@/lib/components/posts';
 
 interface Props {
   params: Promise<{ page: string; }>;

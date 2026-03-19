@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { User, Post, fetchUser } from '@/lib/api';
 
-import '@/styles/user.css';
+export type Props = { post: Post };
 
-export async function UserInfo({ post }: { post: Post }) {
+export async function PostFooter({ post }: Props) {
   const user: User | undefined = await fetchUser(post.author);
 
   if (!user) {
@@ -16,7 +16,7 @@ export async function UserInfo({ post }: { post: Post }) {
     .map((text) => <p key={text}>{text}</p>);
 
   return (
-    <footer className='user-footer p-8 mt-4 mb-4 max-w-4xl skew-backward rounded-lg shadow-lg'>
+    <footer className='post-footer p-8 mt-4 mb-4 max-w-4xl skew-backward rounded-lg text-shadow-lg'>
       <div className='flex justify-center gap-4 skew-forward'>
         <figure className='mt-4'>
           <Image

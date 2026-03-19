@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import { FullPost } from '@/lib/components';
 import { Metadata } from 'next';
 import { Post, findPost } from '@/lib/api';
+import { PostBody, PostFooter, PostHeader } from '@/lib/components/posts';
 import { notFound } from 'next/navigation';
 
 interface Props {
@@ -31,7 +31,11 @@ export default async function PostPage({ params }: Props) {
       <Head>
         <title>{post.title.rendered}</title>
       </Head>
-      <FullPost post={post} />
+      <article className='post max-w-4xl flex flex-col gap-6 items-center' id={`post-${post.id}`}>
+        <PostHeader post={post} />
+        <PostBody post={post} />
+        <PostFooter post={post} />
+      </article>
     </>
   );
 }

@@ -1,0 +1,62 @@
+/**
+import Link from 'next/link';
+ * Body of WordPress post.
+ */
+.post main {
+  --post-float-margin: calc(var(--spacing) * 4);
+  --post-float-max-width: 33%;
+
+  & > * {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+
+  a {
+    color: var(--skew-color-top);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  figure {
+    display: grid;
+    gap: calc(var(--spacing) * 3);
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-rows: auto;
+
+    /* make single non-floated image take up hero size */
+    a:not(.float-left):not(.float-right):only-child {
+      grid-column: 1 / 4;
+    }
+  }
+
+  blockquote {
+    border-left: 1px solid green;
+    padding-left: 1ch;
+  }
+
+  ul {
+    list-style: initial;
+    margin-left: 1ch;
+  }
+
+  .float-left {
+    float: left;
+    max-width: var(--post-float-max-width);
+    margin-right: var(--post-float-margin);
+  }
+
+  .float-right {
+    float: right;
+    max-width: var(--post-float-max-width);
+    margin-left: var(--post-float-margin);
+  }
+}
+
+.post-footer {
+  background: var(--skew-color-bottom);
+
+  figure {
+    flex: 1 0 var(--avatar-size);
+  }
+}
