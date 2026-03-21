@@ -26,10 +26,10 @@ export function renderContent(content: string): string {
   return repalceArchiveLinks(stripFigureBreaks(content));
 }
 
-export async function PostBody({ post }: Props) {
+export function PostBody({ post }: Props) {
   return (
     <main
-      className='max-w-2xl clear-both overflow-auto text-lg'
+      className='clear-both overflow-auto text-lg'
       dangerouslySetInnerHTML={{ __html: renderContent(post.content.rendered) }}
     />
   );

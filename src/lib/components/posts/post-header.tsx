@@ -5,15 +5,17 @@ import { PostDate } from './post-date';
 
 export type Props = { post: Post };
 
-export async function PostHeader({ post }: Props) {
+export function PostHeader({ post }: Props) {
   return (
-    <header className='text-center'>
-      <h1
-        className='font-bold text-4xl mb-4'
-        dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-      />
+    <header className='post-header rounded-lg drop-shadow-lg'>
+      <div className='skew-forward text-center'>
+        <h1
+          className='font-bold text-4xl mb-2'
+          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+        />
+        <PostDate post={post} />
+      </div>
       <Separator />
-      <PostDate post={post} />
     </header>
   );
 }

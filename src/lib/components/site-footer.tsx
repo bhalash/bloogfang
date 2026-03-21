@@ -6,9 +6,9 @@ export async function SiteFooter() {
   const meta: SiteMeta = await fetchSiteMeta();
 
   return (
-    <footer className='mb-6'>
+    <footer>
       <Separator />
-      <Link className='block text-center p-6' href='/'>
+      <Link className='block text-center p-6 w-full' href='/'>
         {meta.name}
       </Link>
     </footer>

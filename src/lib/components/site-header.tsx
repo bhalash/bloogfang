@@ -8,7 +8,7 @@ export async function SiteHeader() {
 
   return (
     <header className='text-center'>
-      <h1 className='font-bold text-4xl'>
+      <h1 className='font-bold text-3xl'>
         <Link className='block skew-drop pt-20 pb-20' href='/'>
           {meta.name}
         </Link>

@@ -16,7 +16,7 @@ export async function PostFooter({ post }: Props) {
     .map((text) => <p key={text}>{text}</p>);
 
   return (
-    <footer className='post-footer p-8 mt-4 mb-4 max-w-4xl skew-backward rounded-lg text-shadow-lg'>
+    <footer className='post-footer p-8 mt-4 mb-4 max-w-4xl skew-backward rounded-lg drop-shadow-lg'>
       <div className='flex justify-center gap-4 skew-forward'>
         <figure className='mt-4'>
           <Image

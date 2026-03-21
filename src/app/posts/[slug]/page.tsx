@@ -1,20 +1,34 @@
-import Head from 'next/head';
 import { Metadata } from 'next';
-import { Post, findPost } from '@/lib/api';
-import { PostBody, PostFooter, PostHeader } from '@/lib/components/posts';
+import { Post, SiteMeta, Tag, fetchSiteMeta, findPost, queryTags } from '@/lib/api';
+import { PostArticle } from '@/lib/components/posts';
 import { notFound } from 'next/navigation';
 
 interface Props {
   params: Promise<{ slug: string; }>;
 }
 
-export async function generateMetadata({ params }: Props ): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post: Post | undefined = await findPost(slug);
 
+  if (!post) {
+    notFound();
+  }
+
+  const meta: SiteMeta = await fetchSiteMeta();
+  const tags: Tag[] = await queryTags({ include: post.tags });
+  const keywords = tags.map(({ name }) => name);
+
   return {
-    title: post?.title.rendered,
-    description: post?.excerpt.rendered,
+    title: post.title.rendered,
+    description: post.excerpt.rendered,
+    keywords,
+    openGraph: {
+      title: post.title.rendered,
+      description: post.excerpt.rendered,
+      siteName: meta.name,
+      type: 'article',
+    }
   };
 }
 
@@ -27,15 +41,6 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
-    <>
-      <Head>
-        <title>{post.title.rendered}</title>
-      </Head>
-      <article className='post max-w-4xl flex flex-col gap-6 items-center' id={`post-${post.id}`}>
-        <PostHeader post={post} />
-        <PostBody post={post} />
-        <PostFooter post={post} />
-      </article>
-    </>
+    <PostArticle post={post} />
   );
 }

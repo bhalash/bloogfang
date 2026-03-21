@@ -1,5 +1,4 @@
 /**
-import Link from 'next/link';
  * Body of WordPress post.
  */
 .post main {
@@ -19,14 +18,12 @@ import Link from 'next/link';
   }
 
   figure {
-    display: grid;
+    display: flex;
+    flex-flow: row wrap;
     gap: calc(var(--spacing) * 3);
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    grid-template-rows: auto;
 
-    /* make single non-floated image take up hero size */
-    a:not(.float-left):not(.float-right):only-child {
-      grid-column: 1 / 4;
+    a {
+      flex: 1 1 32%;
     }
   }
 
@@ -40,12 +37,14 @@ import Link from 'next/link';
     margin-left: 1ch;
   }
 
+  .leftie,
   .float-left {
     float: left;
     max-width: var(--post-float-max-width);
     margin-right: var(--post-float-margin);
   }
 
+  .rightie,
   .float-right {
     float: right;
     max-width: var(--post-float-max-width);

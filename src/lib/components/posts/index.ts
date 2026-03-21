@@ -1,3 +1,4 @@
+export * from './post-article';
 export * from './post-body';
 export * from './post-date';
 export * from './post-footer';
