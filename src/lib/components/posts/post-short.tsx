@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Post } from '@/lib/api';
+import { Post } from '@/lib/api/posts.api';
 
 import { PostDate } from './post-date';
 
